@@ -31,7 +31,7 @@ public class GetKthcharInCompressedString {
 
     public void solve(int testNumber, FastScanner in, PrintWriter out) {
 
-        String str = "ab2cd3ef2";
+        String str = "ab13cd13d12";
         // This string will be ==>  abab cd abab cd abab cd ef   abab cd abab cd abab cd ef
 
         // given a index x find the charqacter at that index
@@ -42,6 +42,13 @@ public class GetKthcharInCompressedString {
         for(int i = 0; i < str.length(); ++i) {
             if(str.charAt(i) >= '0' && str.charAt(i) <= '9') {
                 int k = str.charAt(i) - '0';
+                ++i;
+                while(i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                    k *= 10;
+                    k += str.charAt(i) - '0';
+                    ++i;
+                }
+                --i;
                 lst.add(new Pair(sb.toString(), k, k * sb.length()));
                 sb.setLength(0);
             } else {
@@ -56,7 +63,7 @@ public class GetKthcharInCompressedString {
         //int x = 30;
 
         // We are just iterating for some starting x values and trying to find the characters
-        for(int z = 0; z < 37; ++z) {
+        for(int z = 0; z < 60; ++z) {
             int x = z;
             Stack<Pair> st = new Stack<Pair>();
             int len = 0;
@@ -88,6 +95,8 @@ public class GetKthcharInCompressedString {
 
             }
         }
+
+    }
 
 
     }
