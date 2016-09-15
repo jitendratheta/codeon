@@ -32,6 +32,7 @@ public class GetKthcharInCompressedString {
     public void solve(int testNumber, FastScanner in, PrintWriter out) {
 
         String str = "ab13cd13d12";
+        // example string  ab2cd3ef2
         // This string will be ==>  abab cd abab cd abab cd ef   abab cd abab cd abab cd ef
 
         // given a index x find the charqacter at that index
